@@ -20,7 +20,7 @@
 
   <modules>
       <module>core</module>
-      <module>examples</module>
+      <module>demo</module>
       <module>integration-tests</module>
   </modules>
 

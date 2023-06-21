@@ -140,7 +140,7 @@ public class DiffMutationReproGuidance extends DiffFuzzReproGuidance {
                 super.run(new TestClass(mri.clazz), mri.method, mri.args);
             } catch (DiffException e) {
                 deadMutants.add(mutationInstance.id);
-                System.out.println("FAILURE: killed by input " + ind + ": " + e);
+                System.out.println("FAILURE: killed by input " + ind + ": '"+ mri.args[0]+ "' , " + e + "");
                 try (PrintWriter pw = new PrintWriter(new FileOutputStream(reportFile, true))) {
                     pw.printf("FAILURE: killed by input %d: %s\n", ind, e.toString());
                 }
