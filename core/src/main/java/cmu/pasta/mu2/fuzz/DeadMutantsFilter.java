@@ -20,4 +20,8 @@ public class DeadMutantsFilter implements MutantFilter {
         }
         return aliveMuts;
     }
+
+    public static DeadMutantsFilter getDeadMutantsFilter(MutationGuidance mutationGuidance){
+        return new DeadMutantsFilter(mutationGuidance);
+    }
 }

@@ -180,9 +180,7 @@ public class MutationGuidance extends ZestGuidance implements DiffFuzzGuidance {
     int run = 1;
 
     List<MutationInstance> mutationInstances = getMutationInstances();
-    for(MutantFilter filter : filters){
-      mutationInstances = filter.filterMutants(mutationInstances);
-    }
+    mutationInstances = (new DeadMutantsFilter(this)).filterMutants(mutationInstances);
 
     for (MutationInstance mutationInstance : mutationInstances) {
       // update info

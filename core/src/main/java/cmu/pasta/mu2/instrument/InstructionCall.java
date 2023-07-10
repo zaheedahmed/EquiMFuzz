@@ -12,14 +12,20 @@ import org.objectweb.asm.Opcodes;
 public class InstructionCall implements Opcodes {
 
   public enum CallType {
+
+    //regular instruction
     INSN,
     METHOD_INSN,
+
+    //load constant instruction
     LDC_INSN,
     JUMP_INSN
   }
 
   //for any insn:
   private final CallType type;
+
+  //byte level operation code
   private final int opcode;
 
   //for methodInsn:

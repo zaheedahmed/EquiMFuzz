@@ -224,6 +224,7 @@ public class DiffGoal extends AbstractMojo {
             if (includes == null) {
                 throw new MojoExecutionException("Mutation-based fuzzing requires `-Dincludes`");
             }
+
             MutationClassLoaders mcl = new MutationClassLoaders(classPath, includes, targetIncludes, ol, baseClassLoader);
             loader = mcl.getCartographyClassLoader();
             guidance = new MutationGuidance(targetName, mcl, duration, trials, resultsDir, seedsDir, rnd, filterList);

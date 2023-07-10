@@ -27,6 +27,7 @@ public class CartographyClassLoader extends URLClassLoader {
    */
   private final List<MutationInstance> mutationInstances;
 
+  protected static boolean mutantsCreated = false;
   /**
    * List of prefixes of fully-qualified class names that are mutable
    */
@@ -94,8 +95,8 @@ public class CartographyClassLoader extends URLClassLoader {
         }
       }
 
-      // Make cartograph
-      if (mutable) {
+      // Make cartograph // only if no mutants are created yet
+      if (mutable && !mutantsCreated) {
         Cartographer c = Cartographer.explore(bytes.clone(), this);
         for (List<MutationInstance> opportunities : c.getOpportunities().values()) {
           for (MutationInstance mi : opportunities) {

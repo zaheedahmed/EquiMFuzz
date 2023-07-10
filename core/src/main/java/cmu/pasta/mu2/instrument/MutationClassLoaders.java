@@ -18,7 +18,7 @@ public class MutationClassLoaders {
   private final URL[] paths;
   private final ClassLoader parentClassLoader;
   private final OptLevel optLevel;
-  private final CartographyClassLoader cartographyClassLoader;
+  private CartographyClassLoader cartographyClassLoader;
   private final Map<MutationInstance, MutationClassLoader> mutationClassLoaderMap;
 
   public static String[] targetStarts;
@@ -45,6 +45,7 @@ public class MutationClassLoaders {
               throw new ClassNotFoundException(name + " is mutable or depends on mutable class");
             }
           }
+          //MutationClassLoader????
           return super.findClass(name);
         } catch (OutOfMemoryError e) {
           throw new GuidanceException(e);
@@ -54,6 +55,10 @@ public class MutationClassLoaders {
     this.cartographyClassLoader = new CartographyClassLoader(paths, mutableClasses.split(","),
         parentClassLoader, optLevel);
     this.mutationClassLoaderMap = new HashMap<>();
+  }
+
+  public void setCartographyClassLoader(CartographyClassLoader cartographyClassLoader){
+    this.cartographyClassLoader = cartographyClassLoader;
   }
 
   /**

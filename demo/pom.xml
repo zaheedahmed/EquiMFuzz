@@ -52,10 +52,13 @@
                 <!--                </dependencies>-->
                 <configuration>
                     <targetClasses>
-                        <param>cmu.pasta.mu2.Bisect</param>
+<!--                        <param>cmu.pasta.mu2.Triangle</param>-->
+                        <param>cmu.pasta.mu2.CountNumber</param>
+
                     </targetClasses>
                     <targetTests>
-                        <param>cmu.pasta.mu2.BisectTest</param>
+<!--                        <param>cmu.pasta.mu2.test.TriangleTest</param>-->
+                        <param>cmu.pasta.mu2.test.CountNumberTest</param>
                     </targetTests>
                 </configuration>
             </plugin>
@@ -65,22 +68,25 @@
                 <artifactId>mu2-core</artifactId>
                 <version>1.0-SNAPSHOT</version>
                 <configuration>
-<!--                    <testClassName>cmu.pasta.mu2.test.CommonsTest</testClassName>-->
+<!--                    <testClassName>cmu.pasta.mu2.equiMFuzz.CommonsTest</testClassName>-->
 <!--                    <testMethod>testCapitalize</testMethod>-->
 <!--                    <includes>org.apache.commons.lang.StringUtils</includes>-->
-<!--                    <input>target/fuzz-results/cmu.pasta.mu2.test.CommonsTest/testCapitalize/corpus/</input>-->
+<!--                    <input>target/fuzz-results/cmu.pasta.mu2.equiMFuzz.CommonsTest/testCapitalize/corpus/</input>-->
 
-<!--                    <testClassName>cmu.pasta.mu2.test.BisectTest</testClassName>-->
-<!--                    <testMethod>testSqrt</testMethod>-->
-<!--                    <includes>cmu.pasta.mu2.Bisect</includes>-->
-<!--                    <input>target/fuzz-results/cmu.pasta.mu2.test.BisectTest/testSqrt/corpus/</input>-->
+                    <testClassName>cmu.pasta.mu2.equiMFuzz.BisectTest</testClassName>
+                    <testMethod>testSqrt</testMethod>
+                    <includes>cmu.pasta.mu2.Bisect</includes>
+                    <input>target/fuzz-results/cmu.pasta.mu2.equiMFuzz.BisectTest/testSqrt/corpus/</input>
+                    <originalTestclass>cmu.pasta.mu2.test.BisectTest</originalTestclass>
 
-                    <testClassName>cmu.pasta.mu2.test.TriangleTest</testClassName>
-                    <testMethod>testTriangle</testMethod>
-                    <includes>cmu.pasta.mu2.Triangle</includes>
-                    <input>target/fuzz-results/cmu.pasta.mu2.test.TriangleTest/testTriangle/corpus/</input>
 
-                    <time>60s</time>
+<!--                    <testClassName>cmu.pasta.mu2.equiMFuzz.TriangleTest</testClassName>-->
+<!--                    <testMethod>testTriangle</testMethod>-->
+<!--                    <includes>cmu.pasta.mu2.Triangle</includes>-->
+<!--                    <input>target/fuzz-results/cmu.pasta.mu2.equiMFuzz.TriangleTest/testTriangle/corpus/</input>-->
+<!--                    <originalTestclass>cmu.pasta.mu2.test.TriangleTest</originalTestclass>-->
+
+                    <time>100s</time>
                 </configuration>
             </plugin>
             <plugin>

@@ -19,7 +19,7 @@
         <artifactId>maven-plugin-plugin</artifactId>
         <version>3.6.0</version>
         <configuration>
-          <goalPrefix>mu2</goalPrefix>
+          <goalPrefix>mu2-core</goalPrefix>
         </configuration>
       </plugin>
     </plugins>

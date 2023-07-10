@@ -1,6 +1,5 @@
-package cmu.pasta.mu2.test;
+package cmu.pasta.mu2.equiMFuzz;
 
-import com.pholser.junit.quickcheck.generator.InRange;
 import edu.berkeley.cs.jqf.fuzz.JQF;
 import edu.berkeley.cs.jqf.fuzz.difffuzz.DiffFuzz;
 import org.junit.runner.RunWith;
