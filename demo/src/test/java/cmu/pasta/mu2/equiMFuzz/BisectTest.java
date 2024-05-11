@@ -3,7 +3,6 @@ package cmu.pasta.mu2.equiMFuzz;
 import cmu.pasta.mu2.Bisect;
 import com.pholser.junit.quickcheck.generator.InRange;
 import edu.berkeley.cs.jqf.fuzz.JQF;
-import edu.berkeley.cs.jqf.fuzz.difffuzz.Comparison;
 import edu.berkeley.cs.jqf.fuzz.difffuzz.DiffFuzz;
 import org.junit.runner.RunWith;
 

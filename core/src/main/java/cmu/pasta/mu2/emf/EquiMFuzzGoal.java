@@ -15,6 +15,7 @@ import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.apache.maven.project.MavenProject;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
+import edu.berkeley.cs.jqf.fuzz.ei.ZestGuidance;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -213,8 +214,9 @@ public class EquiMFuzzGoal extends AbstractMojo {
 
 		// Parse string of filters for list of MutantFilters
 		List<MutantFilter> filterList = parseFilters(filters);
-
-
+		int mutants = 0;
+		int successful = 0;
+		int fail = 0;
 
 		try {
 
@@ -242,9 +244,7 @@ public class EquiMFuzzGoal extends AbstractMojo {
 			equiMFuzzClassLoader.setMutantsCreated();
 
 			ArraySet deadMutants = new ArraySet();
-			int mutants = 0;
-			int successful = 0;
-			int fail = 0;
+
 			for(MutationInstance mi : equiMFuzzClassLoader.getMutationInstances()){
 				MutationClassLoader mutationClassLoader = new MutationClassLoader(mi, classPath, baseClassLoader);
 				mutationClassLoader.findClass(mutableClasses[0]);
@@ -294,7 +294,15 @@ public class EquiMFuzzGoal extends AbstractMojo {
 
 		try {
 			result = GuidedFuzzing.run(testClassName, testMethod, loader, guidance, out);
+			System.out.println("--------------------------------");
+			System.out.println("Total Generated!");
+			System.out.println("Number of all Mutants: " + mutants);
+			System.out.println("--------------------------------");
+			System.out.println("After Testing!");
+			System.out.println("Number of surviving Mutants: " + successful);
+			System.out.println("Number of killed Mutants: " + fail);
 
+			System.out.println("After Fuzzing!");
 			System.out.println("Dead Mutants after Fuzzing: " + guidance.getNumberOfDeadMutants());
 			System.out.println("Remaining Mutants: " + guidance.getSurvivingMutants());
 

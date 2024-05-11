@@ -35,6 +35,27 @@
             <version>2.4</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.12.7</version>
+        </dependency>
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <version>1.4.20</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.pholser</groupId>
+            <artifactId>junit-quickcheck-generators</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -53,12 +74,12 @@
                 <configuration>
                     <targetClasses>
 <!--                        <param>cmu.pasta.mu2.Triangle</param>-->
-                        <param>cmu.pasta.mu2.CountNumber</param>
+                        <param>cmu.pasta.mu2.Median</param>
 
                     </targetClasses>
                     <targetTests>
 <!--                        <param>cmu.pasta.mu2.test.TriangleTest</param>-->
-                        <param>cmu.pasta.mu2.test.CountNumberTest</param>
+                        <param>cmu.pasta.mu2.test.MedianTest</param>
                     </targetTests>
                 </configuration>
             </plugin>
@@ -73,20 +94,80 @@
 <!--                    <includes>org.apache.commons.lang.StringUtils</includes>-->
 <!--                    <input>target/fuzz-results/cmu.pasta.mu2.equiMFuzz.CommonsTest/testCapitalize/corpus/</input>-->
 
-                    <testClassName>cmu.pasta.mu2.equiMFuzz.BisectTest</testClassName>
+                    <!--<testClassName>cmu.pasta.mu2.equiMFuzz.BisectTest</testClassName>
                     <testMethod>testSqrt</testMethod>
                     <includes>cmu.pasta.mu2.Bisect</includes>
                     <input>target/fuzz-results/cmu.pasta.mu2.equiMFuzz.BisectTest/testSqrt/corpus/</input>
-                    <originalTestclass>cmu.pasta.mu2.test.BisectTest</originalTestclass>
+                    <originalTestclass>cmu.pasta.mu2.test.BisectTest</originalTestclass>-->
+
+                    <!--<testClassName>cmu.pasta.mu2.equiMFuzz.CPrimeTest</testClassName>
+                    <testMethod>testCPrime</testMethod>
+                    <includes>cmu.pasta.mu2.CPrime</includes>
+                    <input>target/fuzz-results/cmu.pasta.mu2.equiMFuzz.CPrimeTest/testCPrime/corpus/</input>
+                    <originalTestclass>cmu.pasta.mu2.test.CPrimeTest</originalTestclass>-->
+
+                    <!--<testClassName>cmu.pasta.mu2.equiMFuzz.MaximumTest</testClassName>
+                    <testMethod>testMaximum</testMethod>
+                    <includes>cmu.pasta.mu2.Maximum</includes>
+                    <input>target/fuzz-results/cmu.pasta.mu2.equiMFuzz.MaximumTest/testMaximum/corpus/</input>
+                    <originalTestclass>cmu.pasta.mu2.test.MaximumTest</originalTestclass>-->
+
+                    <!--<testClassName>cmu.pasta.mu2.equiMFuzz.MedianTest</testClassName>
+                    <testMethod>testMedian</testMethod>
+                    <includes>cmu.pasta.mu2.Median</includes>
+                    <input>target/fuzz-results/cmu.pasta.mu2.equiMFuzz.MedianTest/testMedian/corpus/</input>
+                    <originalTestclass>cmu.pasta.mu2.test.MedianTest</originalTestclass>-->
+
+                    <!--<testClassName>cmu.pasta.mu2.equiMFuzz.RemainderTest</testClassName>
+                    <testMethod>testRemainder</testMethod>
+                    <includes>cmu.pasta.mu2.Remainder</includes>
+                    <input>target/fuzz-results/cmu.pasta.mu2.equiMFuzz.RemainderTest/testRemainder/corpus/</input>
+                    <originalTestclass>cmu.pasta.mu2.test.RemainderTest</originalTestclass>-->
+
+                    <!--<testClassName>cmu.pasta.mu2.equiMFuzz.CalDayTest</testClassName>
+                    <testMethod>testToJulian</testMethod>
+                    <includes>cmu.pasta.mu2.CalDay</includes>
+                    <input>target/fuzz-results/cmu.pasta.mu2.equiMFuzz.CalDayTest/testToJulian/corpus/</input>
+                    <originalTestclass>cmu.pasta.mu2.test.CalDayTest</originalTestclass>-->
+
+                    <!--<testClassName>cmu.pasta.mu2.equiMFuzz.DoublyLinkedListTest</testClassName>
+                    <testMethod>testInsertAtHead</testMethod>
+                    <includes>cmu.pasta.mu2.DoublyLinkedList</includes>
+                    <input>target/fuzz-results/cmu.pasta.mu2.equiMFuzz.DoublyLinkedListTest/testInsertAtHead/corpus/</input>
+                    <originalTestclass>cmu.pasta.mu2.test.DoublyLinkedListTest</originalTestclass>-->
+
+                    <!--<testClassName>cmu.pasta.mu2.equiMFuzz.DoublyLinkedListTest</testClassName>
+                    <testMethod>testInsertAtTail</testMethod>
+                    <includes>cmu.pasta.mu2.DoublyLinkedList</includes>
+                    <input>target/fuzz-results/cmu.pasta.mu2.equiMFuzz.DoublyLinkedListTest/testInsertAtTail/corpus/</input>
+                    <originalTestclass>cmu.pasta.mu2.test.DoublyLinkedListTest</originalTestclass>-->
+
+                    <!--<testClassName>cmu.pasta.mu2.equiMFuzz.RecursionPowerTest</testClassName>
+                    <testMethod>testPower</testMethod>
+                    <includes>cmu.pasta.mu2.RecursionPower</includes>
+                    <input>target/fuzz-results/cmu.pasta.mu2.equiMFuzz.RecursionPowerTest/testPower/corpus/</input>
+                    <originalTestclass>cmu.pasta.mu2.test.RecursionPowerTest</originalTestclass>-->
+
+                    <!--<testClassName>cmu.pasta.mu2.equiMFuzz.PersonalDetailTest</testClassName>
+                    <testMethod>testPersonalDetailWithFuzzing</testMethod>
+                    <includes>cmu.pasta.mu2.PersonalDetail</includes>
+                    <input>target/fuzz-results/cmu.pasta.mu2.equiMFuzz.PersonalDetailTest/testPersonalDetailWithFuzzing/corpus/</input>
+                    <originalTestclass>cmu.pasta.mu2.test.PersonalDetailTest</originalTestclass>-->
 
 
-<!--                    <testClassName>cmu.pasta.mu2.equiMFuzz.TriangleTest</testClassName>-->
-<!--                    <testMethod>testTriangle</testMethod>-->
-<!--                    <includes>cmu.pasta.mu2.Triangle</includes>-->
-<!--                    <input>target/fuzz-results/cmu.pasta.mu2.equiMFuzz.TriangleTest/testTriangle/corpus/</input>-->
-<!--                    <originalTestclass>cmu.pasta.mu2.test.TriangleTest</originalTestclass>-->
+                    <testClassName>cmu.pasta.mu2.equiMFuzz.TriangleTest</testClassName>
+                    <testMethod>testTriangle</testMethod>
+                    <includes>cmu.pasta.mu2.Triangle</includes>
+                    <input>target/fuzz-results/cmu.pasta.mu2.equiMFuzz.TriangleTest/testTriangle/corpus/</input>
+                    <originalTestclass>cmu.pasta.mu2.test.TriangleTest</originalTestclass>
 
-                    <time>100s</time>
+                    <!--<testClassName>cmu.pasta.mu2.equiMFuzz.NumberUtilsTest</testClassName>
+                    <testMethod>testCompare</testMethod>
+                    <includes>org.apache.commons.lang.NumberUtils</includes>
+                    <input>target/fuzz-results/cmu.pasta.mu2.equiMFuzz.NumberUtilsTest/testCompare/corpus/</input>
+                    <originalTestclass>cmu.pasta.mu2.test.NumberUtilsTest</originalTestclass>-->
+
+                    <time>10s</time>
                 </configuration>
             </plugin>
             <plugin>
