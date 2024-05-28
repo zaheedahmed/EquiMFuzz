@@ -8,10 +8,10 @@ def read_plot_data(input_plot_data):
 
 
 def plot_mutants(df, output_file):
-    plt.plot(df['total_time'], df['found_muts'], label="Found Mutants")
-    plt.plot(df['total_time'], df['seen_muts'], label="Seen Mutants")
+    plt.plot(df['total_time'], df['found_muts'], label="Detected Mutants")
+    plt.plot(df['total_time'], df['seen_muts'], label="Alive Mutants")
     plt.plot(df['total_time'], df['dead_muts'], label="Killed Mutants")
-    plt.plot(df['total_time'], df['run_muts'], label="Run Mutants (moving average)")
+    #plt.plot(df['total_time'], df['run_muts'], label="Run Mutants (moving average)")
 
     func_of_best_fit = np.poly1d(np.polyfit(df['total_time'], df['run_muts'], deg=1))
     plt.plot(df['total_time'], list(map(func_of_best_fit,df['total_time'])),label="Run Mutants (Line Of Best Fit)")

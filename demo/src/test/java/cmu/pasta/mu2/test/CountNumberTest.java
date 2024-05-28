@@ -9,7 +9,7 @@ public class CountNumberTest {
 	@Test
 	public void testCountNumber () {
 		int [] array = {};
-		int a = 0;
+		int a = 1;
 		Assert.assertEquals(CountNumber.countNumber(array, a), 0); ;
 	}
 
