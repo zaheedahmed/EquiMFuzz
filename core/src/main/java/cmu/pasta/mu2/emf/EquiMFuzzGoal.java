@@ -217,6 +217,7 @@ public class EquiMFuzzGoal extends AbstractMojo {
 		int mutants = 0;
 		int successful = 0;
 		int fail = 0;
+		List<MutationInstance> mutationInstanceList = new ArrayList<>();
 
 		try {
 
@@ -244,7 +245,7 @@ public class EquiMFuzzGoal extends AbstractMojo {
 			equiMFuzzClassLoader.setMutantsCreated();
 
 			ArraySet deadMutants = new ArraySet();
-
+			mutationInstanceList = equiMFuzzClassLoader.getMutationInstances();
 			for(MutationInstance mi : equiMFuzzClassLoader.getMutationInstances()){
 				MutationClassLoader mutationClassLoader = new MutationClassLoader(mi, classPath, baseClassLoader);
 				mutationClassLoader.findClass(mutableClasses[0]);
@@ -279,6 +280,7 @@ public class EquiMFuzzGoal extends AbstractMojo {
 			System.out.println("Detecting Equivalent Mutants Through Fuzzing ...");
 
 
+
 		} catch (ClassNotFoundException e) {
 			log.info(e);
 			throw new MojoExecutionException("Testklasse nicht gefunden: " + originalTestclass, e);
@@ -296,6 +298,10 @@ public class EquiMFuzzGoal extends AbstractMojo {
 			result = GuidedFuzzing.run(testClassName, testMethod, loader, guidance, out);
 			System.out.println("--------------------------------");
 			System.out.println("Total Generated!");
+			System.out.println("--------------------------------");
+			System.out.println("Number of all Mutants List: " + mutationInstanceList);
+			System.out.println("--------------------------------");
+			System.out.println("Number of all Mutants: " + mutants);
 			System.out.println("Number of all Mutants: " + mutants);
 			System.out.println("--------------------------------");
 			System.out.println("After Testing!");

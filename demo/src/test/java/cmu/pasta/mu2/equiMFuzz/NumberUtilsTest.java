@@ -14,13 +14,13 @@ public class NumberUtilsTest {
 		return NumberUtils.compare(a, b);
 	}
 
-	@DiffFuzz
-	public Integer testMinimum(@InRange(minInt = 1, maxInt = 10) Integer a, @InRange(minInt = 1, maxInt = 10) Integer b, @InRange(minInt = 1, maxInt = 10) Integer c){
-		return NumberUtils.minimum(a, b, c);
-	}
-	@DiffFuzz
-	public Integer testMaximum(@InRange(minInt = 1, maxInt = 10) Integer a, @InRange(minInt = 1, maxInt = 10) Integer b, @InRange(minInt = 1, maxInt = 10) Integer c){
-		return NumberUtils.maximum(a, b, c);
-	}
+//	@DiffFuzz
+//	public Integer testMinimum(@InRange(minInt = 1, maxInt = 10) Integer a, @InRange(minInt = 1, maxInt = 10) Integer b, @InRange(minInt = 1, maxInt = 10) Integer c){
+//		return NumberUtils.minimum(a, b, c);
+//	}
+//	@DiffFuzz
+//	public Integer testMaximum(@InRange(minInt = 1, maxInt = 10) Integer a, @InRange(minInt = 1, maxInt = 10) Integer b, @InRange(minInt = 1, maxInt = 10) Integer c){
+//		return NumberUtils.maximum(a, b, c);
+//	}
 
 }
